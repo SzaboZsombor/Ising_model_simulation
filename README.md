@@ -10,9 +10,9 @@ The Ising model represents a magnetic material as a grid of discrete spins \( S_
 
 The total energy (Hamiltonian) of the system is:
 
-\[
+$$
 H = -J \sum_{\langle i,j \rangle} S_i S_j - \mu B \sum_i S_i
-\]
+$$
 
 - \( J \) — Spin-spin coupling energy [Joules]. A positive \( J \) corresponds to ferromagnetic interactions.
 - \( \mu \) — Magnetic moment per spin [J/T], e.g., Bohr magneton \( \mu_B \approx 9.27 \times 10^{-24} \, \text{J/T} \).
@@ -25,9 +25,9 @@ H = -J \sum_{\langle i,j \rangle} S_i S_j - \mu B \sum_i S_i
 
 The magnetization \( M \) is the net magnetic moment:
 
-\[
+$$
 M = \mu \sum_i S_i
-\]
+$$
 
 Its average \( \langle M \rangle \) is computed over many Monte Carlo steps after thermal equilibration.
 
@@ -39,9 +39,9 @@ The total internal energy of the system is given by evaluating the Hamiltonian f
 
 The heat capacity at constant volume is defined by:
 
-\[
+$$
 C = \frac{1}{k_B T^2} \left( \langle E^2 \rangle - \langle E \rangle^2 \right)
-\]
+$$
 
 - \( k_B \) — Boltzmann constant \( \approx 1.38 \times 10^{-23} \, \text{J/K} \)
 - \( T \) — Temperature [K]
@@ -50,32 +50,30 @@ C = \frac{1}{k_B T^2} \left( \langle E^2 \rangle - \langle E \rangle^2 \right)
 
 The magnetic susceptibility \( \chi \) measures the system's response to the external field:
 
-\[
+$$
 \chi = \frac{1}{k_B T} \left( \langle M^2 \rangle - \langle M \rangle^2 \right)
-\]
+$$
 
 ## Monte Carlo Algorithm
 
 This simulation uses the Metropolis algorithm to evolve the spin system toward thermal equilibrium:
 
-1. Randomly select a spin.
+1. Randomly select a spin
 2. Compute the energy change \( \Delta E \) from flipping the spin:
-   \[
+   $$
    \Delta E = 2 S_i (J \sum_{\text{nn}} S_j + \mu B)
-   \]
+   $$
 3. Accept the flip with probability:
-   \[
+   $$
    P = \min \left(1, \exp\left(-\frac{\Delta E}{k_B T}\right) \right)
-   \]
-
-This process is repeated over many iterations (Monte Carlo steps per spin, or MCS) to collect statistics.
+   $$
 
 ## Implementation Details
 
-- 2D square lattice with periodic boundary conditions.
-- Lattice size and number of steps configurable.
-- Initial spin configuration: random or aligned.
-- Outputs energy, magnetization, susceptibility, and heat capacity as functions of temperature.
+- 2D square lattice with periodic boundary conditions
+- Lattice size and number of steps configurable
+- Initial spin configuration: random or aligned
+- Outputs energy, magnetization, susceptibility, and heat capacity as functions of temperature
 
 ## Output and Visualization
 
@@ -91,4 +89,5 @@ This process is repeated over many iterations (Monte Carlo steps per spin, or MC
 - Matplotlib
 
 Install dependencies:
+```bash
 pip install numpy matplotlib
