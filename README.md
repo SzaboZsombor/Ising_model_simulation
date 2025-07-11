@@ -25,13 +25,13 @@ $$
 
 Below is an example of the spin configuration evolution during the simulation:
 
-![Spin Grid Evolution](spin_evolution.mp4)
+![Spin Grid Evolution](plots_and_animations/ising_model_animation_100x100.mp4)
 
-*Video showing the time evolution of spins at T = 2.5K (near critical temperature)*
+
 
 ### Temperature-Dependent Physical Quantities
 
-![Thermodynamic Quantities](temperature_plots.png)
+![Thermodynamic Quantities](plots_and_animations/ising_model_results.png)
 
 *From left to right:*
 1. **Magnetization vs Temperature** - Shows the phase transition at Tc
