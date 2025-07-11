@@ -79,15 +79,15 @@ This simulation uses the Metropolis algorithm to evolve the spin system toward t
 1. Randomly select a spin
 2. Compute the energy change $\Delta E$ from flipping the spin:
 
-   $$
-   \Delta E = 2 S_i \left(J \sum_{\text{nn}} S_j + \mu B \right)
-   $$
+$$
+\Delta E = 2 S_i \left(J \sum_{\text{nn}} S_j + \mu B \right)
+$$
 
 3. Accept the flip with probability:
 
-   $$
-   P = \min \left(1, \exp\left(-\frac{\Delta E}{k_B T}\right) \right)
-   $$
+$$
+P = \min \left(1, \exp\left(-\frac{\Delta E}{k_B T}\right) \right)
+$$
 
 ## Implementation Details
 
