@@ -11,23 +11,25 @@ The Ising model represents a magnetic material as a grid of discrete spins $S_i 
 The total energy (Hamiltonian) of the system is:
 
 $$
-H(S_i) = -J \sum_{\langle i,j \rangle} S_i S_j - \mu B \sum_i S_i
+H(S_i) = -J \sum_{\langle i,j \rangle} S_i S_j - \mu h \sum_i S_i
 $$
 
 - $J$ — Spin-spin coupling energy [Joules]. A positive $J$ corresponds to ferromagnetic interactions.
 - $\mu$ — Magnetic moment per spin [J/T], e.g., Bohr magneton $\mu_B \approx 9.27 \times 10^{-24} \, \text{J/T}$.
-- $B$ — External magnetic field [Tesla].
+- $h$ — External magnetic field [Tesla].
 - $\langle i,j \rangle$ — Nearest-neighbor spin pairs.
 
 ## Visualization
 
 ### Spin Grid Evolution
 
-Below is an example of the spin configuration evolution during the simulation:
+Below is an example of the spin configuration evolution during the simulation for 100x100 spin grid:
 
 ![Spin Evolution](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHdhbmR4cTQ3Z3h3cndjajd5cGVyaXp6OWpycDVtZ3F2b2s5bHYzNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/rx9YjGBgdHqDKvZt2c/giphy.gif)
 
 ### Temperature-Dependent Physical Quantities
+
+The phase transition behavior becomes clear when examining these thermodynamic quantities calculated across different temperatures even at smaller grid sizes (In this calculation the grid size was 16x16, but also the finite size effects somewhat distorts the characteristics of the plots):
 
 ![Thermodynamic Quantities](plots_and_animations/ising_model_results.png)
 
@@ -96,21 +98,3 @@ $$
 - Initial spin configuration: random or aligned
 - Outputs energy, magnetization, susceptibility, and heat capacity as functions of temperature
 
-## Output and Visualization
-
-- **Time series** of energy and magnetization
-- **Temperature scans** of all thermodynamic quantities
-- **Spin configuration videos** showing evolution
-- **Snapshot images** at different temperatures
-- All observables in physical units
-
-## Requirements
-
-- Python 3.8+
-- NumPy
-- Matplotlib
-
-Install dependencies:
-
-```bash
-pip install numpy matplotlib
