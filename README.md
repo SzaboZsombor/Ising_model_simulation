@@ -25,7 +25,7 @@ $$
 
 Below is an example of the spin configuration evolution during the simulation:
 
-[[![Spin Grid Evolution](plots_and_animations/ising_model_animation_100x100.mp4)](https://user-images.githubusercontent.com/SzaboZsombor/Ising_model_simulation/plots_and_animations/ising_model_animation_100x100.mp4)](https://user-images.githubusercontent.com/SzaboZsombor/Ising_model_simulation/main/plots_and_animations/ising_model_animation_100x100.mp4)
+![Spin Grid Evolution](plots_and_animations/ising_model.gif)
 
 
 
