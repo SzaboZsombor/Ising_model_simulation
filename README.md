@@ -11,13 +11,33 @@ The Ising model represents a magnetic material as a grid of discrete spins $S_i 
 The total energy (Hamiltonian) of the system is:
 
 $$
-H = -J \sum_{\langle i,j \rangle} S_i S_j - \mu B \sum_i S_i
+H(S_i) = -J \sum_{\langle i,j \rangle} S_i S_j - \mu B \sum_i S_i
 $$
 
 - $J$ — Spin-spin coupling energy [Joules]. A positive $J$ corresponds to ferromagnetic interactions.
 - $\mu$ — Magnetic moment per spin [J/T], e.g., Bohr magneton $\mu_B \approx 9.27 \times 10^{-24} \, \text{J/T}$.
 - $B$ — External magnetic field [Tesla].
 - $\langle i,j \rangle$ — Nearest-neighbor spin pairs.
+
+## Visualization
+
+### Spin Grid Evolution
+
+Below is an example of the spin configuration evolution during the simulation:
+
+![Spin Grid Evolution](spin_evolution.mp4)
+
+*Video showing the time evolution of spins at T = 2.5K (near critical temperature)*
+
+### Temperature-Dependent Physical Quantities
+
+![Thermodynamic Quantities](temperature_plots.png)
+
+*From left to right:*
+1. **Magnetization vs Temperature** - Shows the phase transition at Tc
+2. **Magnetic Susceptibility** - Diverges at the critical temperature
+3. **Heat Capacity** - Peaks at the phase transition
+4. **Energy per Spin** - Shows discontinuity at Tc
 
 ## Thermodynamic Quantities
 
@@ -81,8 +101,9 @@ This simulation uses the Metropolis algorithm to evolve the spin system toward t
 ## Output and Visualization
 
 - **Time series** of energy and magnetization
-- **Plots** of heat capacity $C(T)$, susceptibility $\chi(T)$
-- **Snapshots** of spin configurations
+- **Temperature scans** of all thermodynamic quantities
+- **Spin configuration videos** showing evolution
+- **Snapshot images** at different temperatures
 - All observables in physical units
 
 ## Requirements
