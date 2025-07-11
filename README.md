@@ -25,9 +25,7 @@ $$
 
 Below is an example of the spin configuration evolution during the simulation:
 
-![Spin Grid Evolution](plots_and_animations/ising_model.gif)
-
-
+![Spin Dynamics](https://github.com/SzaboZsombor/Ising_model_simulation/raw/main/plots_and_animations/ising_model.gif)
 
 ### Temperature-Dependent Physical Quantities
 
