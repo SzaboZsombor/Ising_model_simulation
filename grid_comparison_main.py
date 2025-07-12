@@ -1,5 +1,7 @@
-import sys
 import os
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), 'simulation_codes'))
+
 import numpy as np
 from ising_model import IsingModel
 from unit_converter import physical_to_simulation, simulation_to_physical
@@ -24,7 +26,6 @@ def main():
     
     print(f"Starting grid size comparison")
     print(f"Grid sizes: {grid_sizes}")
-    print(f"Temperature range: {T_phys[0]:.1f}K to {T_phys[-1]:.1f}K ({nT} points)")
     
     for grid_size in grid_sizes:
         print(f"\nRunning simulation for grid size {grid_size}x{grid_size}")
@@ -35,7 +36,6 @@ def main():
         specific_heat = np.zeros(nT)
         
         for kT in range(nT):
-            print(f"  Temperature {kT+1}/{nT}: {T_phys[kT]:.1f}K")
             
             T_sim, h_sim, mu_sim = physical_to_simulation(T_phys[kT], h_phys)
             
@@ -66,10 +66,9 @@ def main():
         magnetization_dict[grid_size] = magnetization.copy()
         susceptibility_dict[grid_size] = susceptibility.copy()
         specific_heat_dict[grid_size] = specific_heat.copy()
-        
-        print(f"Completed grid size {grid_size}x{grid_size}")
     
-    save_path = '../plots_and_animations/ising_model_results_grid_sizes.png'
+
+    save_path = 'D:/Egyetem/Tudományos Programozás/Ising_model_simulation/plots_and_animations/ising_model_results_grid_comparison.png'
     plot_grid_comparison(T_phys, energies_dict, magnetization_dict, susceptibility_dict, 
                         specific_heat_dict, grid_sizes, save_path)
     

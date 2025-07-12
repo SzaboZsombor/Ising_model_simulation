@@ -1,9 +1,13 @@
-import sys
 import os
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), 'simulation_codes'))
+
 from ising_model import IsingModel
 from unit_converter import physical_to_simulation, simulation_to_physical
 from monte_carlo import monte_carlo_animation
 from visualization import create_animation
+
+
 
 def main():
     T_phys = 50  # K
@@ -23,7 +27,7 @@ def main():
     print(f"Final energy: {E_phys:.4e} J")
     print(f"Final magnetization: {M_phys:.4e} J/T")
     
-    save_path = '../plots_and_animations/ising_model_animation_16x16.gif'
+    save_path = 'D:/Egyetem/Tudományos Programozás/Ising_model_simulation/plots_and_animations/ising_model_animation_16x16.gif'
     create_animation(spin_grids, T_phys, h_phys, save_path=save_path)
     
     print(f"Animation saved to: {save_path}")

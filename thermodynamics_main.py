@@ -1,10 +1,15 @@
 import sys
 import os
+sys.path.append(os.path.join(os.path.dirname(__file__), 'simulation_codes'))
+
 import numpy as np
 from ising_model import IsingModel
 from unit_converter import physical_to_simulation, simulation_to_physical
 from monte_carlo import monte_carlo_equilibrium
 from visualization import plot_thermodynamics
+
+sys.path.append(os.path.join(os.path.dirname(__file__), 'simulation_codes'))
+
 
 def main():
     nT = 60
@@ -22,7 +27,6 @@ def main():
     specific_heat = np.zeros(nT)
     
     print(f"Starting thermodynamic calculation with grid size {grid_size}x{grid_size}")
-    print(f"Temperature range: {T_phys[0]:.1f}K to {T_phys[-1]:.1f}K ({nT} points)")
     
     for kT in range(nT):
         print(f"Temperature {kT+1}/{nT}: {T_phys[kT]:.1f}K")
@@ -52,7 +56,8 @@ def main():
         susceptibility[kT] = X_phys
         specific_heat[kT] = C_phys
     
-    save_path = '../plots_and_animations/ising_model_results.png'
+
+    save_path = 'D:/Egyetem/Tudományos Programozás/Ising_model_simulation/plots_and_animations/ising_model_results_16x16.png'
     plot_thermodynamics(T_phys, energies, magnetization, susceptibility, specific_heat, save_path)
     
     print(f"Results plotted and saved to: {save_path}")
