@@ -94,21 +94,18 @@ $$
 ## Project Structure
 
 ```
-.
-simulation_codes/
-├── ising_model.py          # Core IsingModel class
-├── unit_converter.py       # Physical ↔ simulation unit conversion
-├── monte_carlo.py          # Monte Carlo algorithms
-├── visualization.py        # Plotting and animation functions
-├── main.py                 # Interactive example usage
-├── animation_main.py       # Full animation simulation
-├── thermodynamics_main.py  # Detailed thermodynamic analysis
-└── grid_comparison_main.py # Comprehensive grid size comparison
+├── simulation_codes/
+│   ├── ising_model.py          # Core IsingModel class
+│   ├── unit_converter.py       # Physical ↔ simulation unit conversion
+│   ├── monte_carlo.py          # Monte Carlo algorithms
+│   ├── visualization.py        # Plotting and animation functions
 ├── plots_and_data/
 │   ├── ising_model_results.png
 │   ├── ising_model_animation.mp4
 │   ├── etc.
-.
+├── animation_main.py       # Full spin grid animation simulation
+├── thermodynamics_main.py  # Detailed thermodynamic properties calculation
+└── grid_comparison_main.py # Grid size comparison for the physical properties
 ```
 ---
 
