@@ -1,6 +1,6 @@
 import sys
 import os
-sys.path.append(os.path.join(os.path.dirname(__file__), 'codes'))
+sys.path.append(os.path.join(os.path.dirname(__file__), 'simulation_codes'))
 
 import numpy as np
 from ising_model import IsingModel
@@ -14,7 +14,6 @@ def main():
     T_phys = np.linspace(250, 420, nT)  # K
     h_phys = 0.0  # T
     
-    # Grid sizes to compare
     grid_sizes = [12, 16, 32, 64, 128, 256]
     
     # Simulation parameters
@@ -22,7 +21,6 @@ def main():
     measurement_steps = 1500
     N_runs = 80
     
-    # Storage dictionaries
     energies_dict = {}
     magnetization_dict = {}
     susceptibility_dict = {}
@@ -42,15 +40,11 @@ def main():
         specific_heat = np.zeros(nT)
         
         for kT in range(nT):
-            print(f"  Temperature {kT+1}/{nT}: {T_phys[kT]:.1f}K")
             
-            # Convert to simulation units
             T_sim, h_sim, mu_sim = physical_to_simulation(T_phys[kT], h_phys)
             
-            # Create model
             model = IsingModel(grid_size, T_sim, h=h_sim, mu=mu_sim)
             
-            # Accumulate results from multiple runs
             E_total = M_total = X_total = C_total = 0.0
             
             for _ in range(N_runs):
@@ -60,13 +54,11 @@ def main():
                 X_total += X_sim
                 C_total += C_sim
             
-            # Average over runs
             E_avg = E_total / N_runs
             M_avg = M_total / N_runs
             X_avg = X_total / N_runs
             C_avg = C_total / N_runs
             
-            # Convert to physical units
             E_phys, M_phys, X_phys, C_phys = simulation_to_physical(E_avg, M_avg, X_avg, C_avg)
             
             energies[kT] = E_phys
@@ -74,15 +66,12 @@ def main():
             susceptibility[kT] = X_phys
             specific_heat[kT] = C_phys
         
-        # Store results for this grid size
         energies_dict[grid_size] = energies.copy()
         magnetization_dict[grid_size] = magnetization.copy()
         susceptibility_dict[grid_size] = susceptibility.copy()
         specific_heat_dict[grid_size] = specific_heat.copy()
         
-        print(f"Completed grid size {grid_size}x{grid_size}")
     
-    # Plot comparison
     save_path = './plots_and_animations/ising_model_results_grid_sizes.png'
     plot_grid_comparison(T_phys, energies_dict, magnetization_dict, susceptibility_dict, 
                         specific_heat_dict, grid_sizes, save_path)

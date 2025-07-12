@@ -1,6 +1,6 @@
 import sys
 import os
-sys.path.append(os.path.join(os.path.dirname(__file__), 'codes'))
+sys.path.append(os.path.join(os.path.dirname(__file__), 'simulation_codes'))
 
 import numpy as np
 from ising_model import IsingModel
@@ -20,7 +20,6 @@ def main():
     measurement_steps = 2000
     N_runs = 100
     
-    # Initialize arrays
     energies = np.zeros(nT)
     magnetization = np.zeros(nT)
     susceptibility = np.zeros(nT)
@@ -30,15 +29,11 @@ def main():
     print(f"Temperature range: {T_phys[0]:.1f}K to {T_phys[-1]:.1f}K ({nT} points)")
     
     for kT in range(nT):
-        print(f"Temperature {kT+1}/{nT}: {T_phys[kT]:.1f}K")
         
-        # Convert to simulation units
         T_sim, h_sim, mu_sim = physical_to_simulation(T_phys[kT], h_phys)
         
-        # Create model
         model = IsingModel(grid_size, T_sim, h=h_sim, mu=mu_sim)
         
-        # Accumulate results from multiple runs
         E_total = M_total = X_total = C_total = 0.0
         
         for _ in range(N_runs):
@@ -54,7 +49,6 @@ def main():
         X_avg = X_total / N_runs
         C_avg = C_total / N_runs
         
-        # Convert to physical units
         E_phys, M_phys, X_phys, C_phys = simulation_to_physical(E_avg, M_avg, X_avg, C_avg)
         
         energies[kT] = E_phys
@@ -62,7 +56,7 @@ def main():
         susceptibility[kT] = X_phys
         specific_heat[kT] = C_phys
     
-    # Plot results
+    
     save_path = './plots_and_animations/ising_model_results.png'
     plot_thermodynamics(T_phys, energies, magnetization, susceptibility, specific_heat, save_path)
     

@@ -4,7 +4,7 @@ from IPython.display import HTML
 import numpy as np
 
 def create_animation(spin_grids, T_phys, h_phys, save_path=None, fps=60):
-    """Create animation of spin evolution"""
+    #Creates an animation of the spin evolution
     fig, ax = plt.subplots(figsize=(6, 6), dpi=100)
     img = ax.imshow(spin_grids[0], cmap='plasma', vmin=-1, vmax=1)
     ax.set_title(f'2D Ising Model: T={T_phys:.2f}K, h={h_phys:.2f}T')
@@ -35,7 +35,7 @@ def create_animation(spin_grids, T_phys, h_phys, save_path=None, fps=60):
     return HTML(ani.to_jshtml(fps=fps))
 
 def plot_thermodynamics(T_phys, energies, magnetization, susceptibility, specific_heat, save_path=None):
-    """Plot thermodynamic quantities vs temperature"""
+
     plt.figure(figsize=(16, 12))
     
     plt.subplot(2, 2, 1)
@@ -68,7 +68,7 @@ def plot_thermodynamics(T_phys, energies, magnetization, susceptibility, specifi
     plt.show()
 
 def plot_grid_comparison(T_phys, energies_dict, magnetization_dict, susceptibility_dict, specific_heat_dict, grid_sizes, save_path=None):
-    """Plot comparison of different grid sizes"""
+    
     plt.figure(figsize=(16, 12))
     
     colors = ['IndianRed', 'RoyalBlue', 'DarkOrange', 'DarkGreen', 'Purple', 'Brown']

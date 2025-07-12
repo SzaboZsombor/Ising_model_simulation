@@ -9,7 +9,7 @@ def equilibrium_check(energies, eps, window):
     return np.all(diffs < eps)
 
 def monte_carlo_animation(model, steps, eps=1e-3, window=400):
-    """Monte Carlo simulation for animation - single spin flips"""
+
     energies = []
     magnetizations = []
     spin_grids = []
@@ -39,7 +39,7 @@ def monte_carlo_animation(model, steps, eps=1e-3, window=400):
     return E, M, np.array(spin_grids)
 
 def monte_carlo_equilibrium(model, eq_steps, measurement_steps):
-    """Monte Carlo simulation for physical property calculation - full lattice sweeps"""
+
     beta = 1.0 / model.temperature
     N = model.grid_size
     
@@ -76,7 +76,7 @@ def monte_carlo_equilibrium(model, eq_steps, measurement_steps):
     equilibrium_energies = np.array(equilibrium_energies)
     equilibrium_magnetizations = np.array(equilibrium_magnetizations)
     
-    # Calculate thermodynamic quantities per spin
+    # Calculating thermodynamic quantities per spin
     E_avg = np.mean(equilibrium_energies)
     M_avg = np.mean(equilibrium_magnetizations)
     E2_avg = np.mean(equilibrium_energies**2)
