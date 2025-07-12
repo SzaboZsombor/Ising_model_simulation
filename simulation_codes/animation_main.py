@@ -1,14 +1,11 @@
 import sys
 import os
-sys.path.append(os.path.join(os.path.dirname(__file__), 'simulation_codes'))
-
 from ising_model import IsingModel
 from unit_converter import physical_to_simulation, simulation_to_physical
 from monte_carlo import monte_carlo_animation
 from visualization import create_animation
 
 def main():
-    
     T_phys = 50  # K
     h_phys = 0.04  # T
     grid_size = 16
@@ -18,7 +15,6 @@ def main():
     
     model = IsingModel(grid_size, T_sim, h=h_sim, mu=mu_sim)
     
-
     print(f"Starting simulation with T={T_phys}K, grid size={grid_size}x{grid_size}")
     E_sim, M_sim, spin_grids = monte_carlo_animation(model, steps=5000)
     
