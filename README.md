@@ -91,10 +91,25 @@ $$
 P = \min \left(1, \exp\left(-\frac{\Delta E}{k_B T}\right) \right)
 $$
 
-## Implementation Details
+## Project Structure
 
-- 2D square lattice with periodic boundary conditions
-- Lattice size and number of steps configurable
-- Initial spin configuration: random or aligned
-- Outputs energy, magnetization, susceptibility, and heat capacity as functions of temperature
+```
+.
+simulation_codes/
+├── ising_model.py          # Core IsingModel class
+├── unit_converter.py       # Physical ↔ simulation unit conversion
+├── monte_carlo.py          # Monte Carlo algorithms
+├── visualization.py        # Plotting and animation functions
+├── main.py                 # Interactive example usage
+├── animation_main.py       # Full animation simulation
+├── thermodynamics_main.py  # Detailed thermodynamic analysis
+└── grid_comparison_main.py # Comprehensive grid size comparison
+├── plots_and_data/
+│   ├── ising_model_results.png
+│   ├── ising_model_animation.mp4
+│   ├── etc.
+.
+```
+---
+
 
