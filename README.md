@@ -1,6 +1,6 @@
 # Ising Model Simulation with External Field
 
-This project simulates the two-dimensional Ising model in the presence of an external magnetic field. It provides a computational study of magnetic phase transitions in a ferromagnetic system using the Metropolis Monte Carlo method. All parameters are expressed in physical units (Kelvin, Tesla, Joules, etc.) to allow comparison with experimental systems.
+This project simulates the two-dimensional Ising model in the presence of an external magnetic field. It provides a computational study of magnetic phase transitions in a ferromagnetic system using the Metropolis-Hastings algorithm. All parameters are expressed in physical units (Kelvin, Tesla, Joules, etc.) to allow comparison with experimental systems.
 
 ## Physical Model
 
@@ -82,7 +82,7 @@ This simulation uses the Metropolis algorithm to evolve the spin system toward t
 2. Compute the energy change $\Delta E$ from flipping the spin:
 
 $$
-\Delta E = 2 S_i \left(J \sum_{\text{nn}} S_j + \mu B \right)
+\Delta E = 2 S_i \left(J \sum_{\text{nn}} S_j + \mu h \right)
 $$
 
 3. Accept the flip with probability:
